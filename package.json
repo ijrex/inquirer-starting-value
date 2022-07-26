@@ -11,11 +11,11 @@
     "url": "git+https://github.com/ijrex/inquirer-starting-value.git"
   },
   "keywords": [
-    "[\"inquirer\"",
-    "\"prompt\"",
-    "\"plugin\"",
-    "\"initial\"",
-    "\"prefix\"]"
+    "inquirer",
+    "prompt",
+    "plugin",
+    "initial",
+    "prefix"
   ],
   "author": "Iain Rex (https://github.com/ijrex)",
   "license": "MIT",
