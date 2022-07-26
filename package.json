@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ijrex/inquirer-starting-value/issues"
   },
-  "homepage": "https://github.com/ijrex/inquirer-starting-value#readme"
+  "homepage": "https://github.com/ijrex/inquirer-starting-value#readme",
+  "devDependencies": {
+    "inquirer": "^9.0.2"
+  }
 }
