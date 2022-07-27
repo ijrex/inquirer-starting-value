@@ -12,7 +12,7 @@ inquirer
     console.log(answers)
   })
   .catch((err) => {
-    if (error.isTtyError) {
+    if (err.isTtyError) {
       // Prompt couldn't be rendered in the current environment
       console.log("Prompt couldn't be rendered in the current environment")
     } else {
