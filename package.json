@@ -1,12 +1,12 @@
 {
   "name": "inquirer-starting-value-prompt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple plugin to set an initial value on Inquirer.js input prompts",
   "files": [
     "lib/**/*"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "engines": {
     "node": ">=14.16"
   },
