@@ -1,17 +1,19 @@
 import inquirer from 'inquirer';
-import InputStartingVal from './index.js';
+import InputStartingVal from './src/index.js';
 
 inquirer.registerPrompt('input-starting-value', InputStartingVal);
 
+export const questions = [
+  /* Pass your questions in here */ {
+    type: 'input-starting-value',
+    name: 'package_name',
+    message: "What's your package name",
+    initialValue: '@bonnie-eilish/',
+  },
+];
+
 inquirer
-  .prompt([
-    /* Pass your questions in here */ {
-      type: 'input-starting-value',
-      name: 'package_name',
-      message: "What's your package name",
-      initialValue: '@bonnie-eilish/',
-    },
-  ])
+  .prompt(questions)
   .then((answers) => {
     console.log(answers);
   })

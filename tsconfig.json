@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
+    "outDir": "lib",
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true
-  }
+    "noImplicitAny": true,
+    "declaration": true
+  },
+  "include": ["src"]
 }

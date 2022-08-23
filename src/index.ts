@@ -13,7 +13,6 @@ interface InputQuestionOptionsStartingVal<T extends Answers = Answers>
 
 export default class InputStartingVal extends Input {
   startingVal: string;
-  state: any;
 
   constructor(
     question: InputQuestionOptionsStartingVal<Answers>,
