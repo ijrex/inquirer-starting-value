@@ -13,7 +13,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "demo": "node --loader ts-node/esm demo.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "publish:beta": "npm publish --tag beta"
   },
   "repository": {
     "type": "git",
