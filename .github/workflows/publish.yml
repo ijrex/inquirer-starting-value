@@ -2,11 +2,11 @@ name: publish
 on:
   pull_request:
     branches:
-      - main
+      - feat/actions-test
     types: [opened]
   push:
     branches:
-      - main
+      - feat/actions-test
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+*'
 jobs:
@@ -24,11 +24,15 @@ jobs:
 
       - name: Publish (dry run)
         if: ${PUBLISH_TO_NPM} == true
-        run: npm publish --dry-run
+        run: |
+          echo "publish ${PUBLISH_TO_NPM}"
+          npm publish --dry-run
 
       - name: Publish
         if: ${PUBLISH_TO_NPM} != true
-        run: npm publish
+        run: |
+          echo "publish ${PUBLISH_TO_NPM}"
+          # npm publish
 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
