@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PUBLISH_TO_NPM: ${{ github.ref_name == 'main' && github.event_name == 'push' }}
+      PUBLISH_TO_NPM: ${{ github.ref_name == 'feat/actions-test' && github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
