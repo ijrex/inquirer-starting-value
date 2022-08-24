@@ -4,8 +4,6 @@ on:
     branches:
       - feat/actions-test
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*'
 jobs:
   build:
     runs-on: ubuntu-latest
