@@ -3,7 +3,6 @@ on:
   pull_request:
     branches:
       - feat/actions-test
-    types: [opened]
   push:
     branches:
       - feat/actions-test
