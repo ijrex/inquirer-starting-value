@@ -22,7 +22,7 @@ jobs:
       - run: npm ci
 
       - name: Publish (dry run)
-        if: env.PUBLISH_TO_NPM != true
+        if: ${{ env.PUBLISH_TO_NPM != true }}
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
@@ -31,7 +31,7 @@ jobs:
           npm publish --dry-run
 
       - name: Publish
-        if: env.PUBLISH_TO_NPM == true
+        if: ${{ env.PUBLISH_TO_NPM == true }}
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
