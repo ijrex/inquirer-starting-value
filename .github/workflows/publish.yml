@@ -23,13 +23,13 @@ jobs:
       - run: npm ci
 
       - name: Publish (dry run)
-        if: ${PUBLISH_TO_NPM} == true
+        if: env.PUBLISH_TO_NPM == true
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           npm publish --dry-run
 
       - name: Publish
-        if: ${PUBLISH_TO_NPM} != true
+        if: env.PUBLISH_TO_NPM != true
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           # npm publish
