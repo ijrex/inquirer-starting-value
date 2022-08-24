@@ -26,8 +26,8 @@ jobs:
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
-          echo "ref ${github.ref_name}"
-          echo "event ${github.github.event_name}"
+          echo "ref ${{github.ref_name}}"
+          echo "event ${{github.github.event_name}}"
           npm publish --dry-run
 
       - name: Publish
@@ -35,8 +35,8 @@ jobs:
         run: |
           echo "publish ${PUBLISH_TO_NPM}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
-          echo "ref ${github.ref_name}"
-          echo "event ${github.github.event_name}"
+          echo "ref ${{github.ref_name}}"
+          echo "event ${{github.github.event_name}}"
           # npm publish
 
         env:
