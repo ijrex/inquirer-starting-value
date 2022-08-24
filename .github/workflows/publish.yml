@@ -1,5 +1,9 @@
 name: publish
 on:
+  pull_request:
+    branches:
+      - main
+    types: [opened]
   push:
     branches:
       - main
@@ -8,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PUBLISH_TO_NPM: ${{ github.ref_name == 'main' && github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -15,6 +21,14 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm publish
+
+      - name: Publish (dry run)
+        if: ${PUBLISH_TO_NPM} == true
+        run: npm publish --dry-run
+
+      - name: Publish
+        if: ${PUBLISH_TO_NPM} != true
+        run: npm publish
+
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
