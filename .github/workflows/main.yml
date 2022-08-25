@@ -2,10 +2,10 @@ name: publish
 on:
   pull_request:
     branches:
-      - feat/actions-test
+      - feat/actions-test-parent
   push:
     branches:
-      - '!feat/actions-test'
+      - 'feat/actions-test-parent'
 
 jobs:
   build:
