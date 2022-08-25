@@ -1,13 +1,10 @@
 name: publish
 on:
-  pull_request:
-    branches:
-      - feat/actions-test
-  push:
+  release:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+*'
     branches:
-      - '!feat/actions-test'
+      - feat/actions-test
 
 jobs:
   build:
