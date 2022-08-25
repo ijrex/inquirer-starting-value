@@ -20,7 +20,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
 
-      - run: echo "${{ github.event }}"
+      - run: echo "${{ toJson(${{github.event) }}"
 
       - name: Publish (dry run)
         if: ${{ env.PUBLISH_TO_NPM != 'true' }}
