@@ -15,6 +15,7 @@ jobs:
       - run: npm ci
       - name: Publish
         run: |
+          echo "boolean ${{ github.event }}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
           echo "ref ${{github.ref_name}}"
           echo "event ${{github.event_name}}"
