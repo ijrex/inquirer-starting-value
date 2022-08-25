@@ -1,16 +1,11 @@
 name: publish
 on:
   release:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+*'
-    branches:
-      - feat/actions-test
+    types: [created]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      PUBLISH_TO_NPM: ${{ github.ref_name == 'feat/actions-test' && github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -18,21 +13,8 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-
-      - name: Publish (dry run)
-        if: ${{ env.PUBLISH_TO_NPM != 'true' }}
-        run: |
-          echo "publish ${PUBLISH_TO_NPM}"
-          echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
-          echo "ref ${{github.ref_name}}"
-          echo "event ${{github.event_name}}"
-          echo "type ${{github.ref_type}}"
-          npm publish --dry-run
-
       - name: Publish
-        if: ${{ env.PUBLISH_TO_NPM == 'true' }}
         run: |
-          echo "publish ${PUBLISH_TO_NPM}"
           echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
           echo "ref ${{github.ref_name}}"
           echo "event ${{github.event_name}}"
