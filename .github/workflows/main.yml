@@ -2,7 +2,7 @@ name: npm publish (dry-run)
 on:
   pull_request:
     branches:
-      - feat/actions-test-parent
+      - main
 
 jobs:
   build:
@@ -15,10 +15,4 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - name: Publish (Dry Run)
-        run: |
-          echo "boolean ${{ toJSON(github.event) }}"
-          echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
-          echo "ref ${{github.ref_name}}"
-          echo "event ${{github.event_name}}"
-          echo "type ${{github.ref_type}}"
-          npm publish --dry-run
+        run: npm publish --dry-run

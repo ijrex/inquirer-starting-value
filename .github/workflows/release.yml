@@ -20,7 +20,6 @@ jobs:
           echo "ref ${{github.ref_name}}"
           echo "event ${{github.event_name}}"
           echo "type ${{github.ref_type}}"
-          # npm publish
-
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
