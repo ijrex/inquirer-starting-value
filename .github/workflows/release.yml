@@ -16,6 +16,8 @@ jobs:
       - name: Publish Beta
         if: ${{ github.event.release.prerelease == true }}
         run: npm publish --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish Prod
         if: ${{ github.event.release.prerelease != true }}
         run: npm publish
