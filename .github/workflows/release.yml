@@ -13,13 +13,16 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - name: Publish
+      - name: Publish Beta
+        if: ${{ github.event.release.prerelease == 'true' }}
         run: |
-          echo "boolean ${{ toJSON(github.event) }}"
-          echo "boolean ${{ github.ref_name == 'main' && github.event_name == 'push' }}"
-          echo "ref ${{github.ref_name}}"
-          echo "event ${{github.event_name}}"
-          echo "type ${{github.ref_type}}"
+          echo "publishing beta"
+          echo "type ${{github.event.release.prerelease}}"
+          # npm publish
+      - name: Publish Prod
+        if: ${{ github.event.release.prerelease == 'true' }}
+        run: |
+          echo "publishing beta"
           echo "type ${{github.event.release.prerelease}}"
           # npm publish
         env:
